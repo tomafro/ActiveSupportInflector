@@ -27,7 +27,7 @@
 
 + (ActiveSupportInflectorRule*) rule:(NSString*)rule replacement:(NSString*)replacement {
   ActiveSupportInflectorRule* result;
-  if (result = [[[self alloc] init] autorelease]) {
+  if ((result = [[[self alloc] init] autorelease])) {
     [result setRule:rule];
     [result setReplacement:replacement];
   }
@@ -44,7 +44,7 @@
 @implementation ActiveSupportInflector
 
 - (ActiveSupportInflector*)init {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     uncountableWords = [[NSMutableSet alloc] init];
     pluralRules = [[NSMutableArray alloc] init];
     singularRules = [[NSMutableArray alloc] init];
