@@ -37,8 +37,12 @@
 			ses,
 		),
 		(
-			"(?:([^f])fe|([lr])f)$",
-			"$1$2ves",
+			"(?:([lr])f)$",
+			"$1ves",
+		),
+		(
+			"(?:(?:([^f])fe))$",
+			"$1ves",
 		),
 		(
 			"(hive)$",
@@ -53,7 +57,7 @@
 			"$1es",
 		),
 		(
-			"(matr|vert|ind)ix|ex$",
+			"(matr|vert|ind)(?:ix|ex)$",
 			"$1ices",
 		),
 		(
@@ -112,11 +116,11 @@
 		),
 		(
 			"series$",
-			"series",
+			series,
 		),
 		(
 			"movies$",
-			"movie",
+			movie,
 		),
 		(
 			"(x|ch|ss|sh)es$",
@@ -188,10 +192,10 @@
 			move,
 			moves,
 		),
-    ( 
-      database,
-      databases
-    )
+		(
+			database,
+			databases,
+		),
 	);
 	uncountableWords = (
 		equipment,

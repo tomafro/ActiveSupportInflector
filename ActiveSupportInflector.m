@@ -7,7 +7,6 @@
 //
 
 #import "ActiveSupportInflector.h"
-#import "RegexKitLite.h"
 
 @interface ActiveSupportInflectorRule : NSObject
 {
@@ -28,7 +27,7 @@
 
 + (ActiveSupportInflectorRule*) rule:(NSString*)rule replacement:(NSString*)replacement {
   ActiveSupportInflectorRule* result;
-  if (result = [[[super init] alloc] autorelease]) {
+  if (result = [[[self alloc] init] autorelease]) {
     [result setRule:rule];
     [result setReplacement:replacement];
   }
@@ -110,10 +109,11 @@
   }
   else {
     for (ActiveSupportInflectorRule* rule in rules) {
-      if ([string isMatchedByRegex:[rule rule]]) {
-        NSLog([rule rule]);
-        NSLog([rule replacement]);
-        return [string stringByReplacingOccurrencesOfRegex:[rule rule] withString:[rule replacement]];
+      NSRange range = NSMakeRange(0, [string length]);
+      NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:[rule rule] options:0 error:nil];
+      if ([regex firstMatchInString:string options:0 range:range]) {
+        // NSLog(@"rule: %@, replacement: %@", [rule rule], [rule replacement]);
+        return [regex stringByReplacingMatchesInString:string options:0 range:range withTemplate:[rule replacement]];
       }
     }
     return string;
