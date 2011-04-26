@@ -2,9 +2,6 @@
 //  Inflector.h
 //  ActiveSupportInflector
 //
-//  Created by Tom Ward on 26/05/2009.
-//  Copyright 2009 Tom Ward. All rights reserved.
-//
 
 @interface ActiveSupportInflector : NSObject {
   NSMutableSet* uncountableWords;
