@@ -3,7 +3,7 @@
 //  ActiveSupportInflector
 //
 
-#import "NSString+MSAdditions.h"
+//#import "NSString+MSAdditions.h"
 #import "ActiveSupportInflector.h"
 
 @implementation NSString (ActiveSupportInflector)
