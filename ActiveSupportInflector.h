@@ -3,6 +3,8 @@
 //  ActiveSupportInflector
 //
 
+@import Foundation;
+
 @interface ActiveSupportInflector : NSObject {
   NSMutableSet* uncountableWords;
   NSMutableArray* pluralRules;
